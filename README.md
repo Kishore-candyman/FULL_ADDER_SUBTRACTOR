@@ -66,34 +66,24 @@ Write the detailed procedure here
 **Program:**
 ```
 
-FULL ADDER
-module fulladder(sum, cout, a, b, cin); output sum;
-output cout;
-input a;
-input b;
-input cin;
-wire w1,w2,w3;
-assign w1=a^b;
-assign w2=a&b;
-assign w3=w1&cin;
-assign sum=w1^cin;
-assign cout=w2|w3;
+i)FULL ADDER
+
+module fulladder(a,b,cin,sum,carry);
+input a,b,cin;
+output sum,carry;
+assign sum=( (a ^ b)^cin);
+assign carry= ( (a & b)| ( cin &(a ^ b )));
 endmodule
 
-FULL SUBTRACTOR
-module fullsub(df,bo,a,b,bin); 
-output df;
-output bo; 
-input a; 
-input b; 
-input bin;
-wire w1,w2,w3; 
-assign w1=a^b; 
-assign w2=(~a&b); 
-assign w3=(~w1&bin); 
-assign df=w1^bin; 
-assign bo=w2|w3; 
+ii)FULL SUBTRACTOR
+
+module fullsubtractor(a,b,bin,difference,borrow);
+input a,b,bin;
+output difference,borrow;
+assign difference= ( (a ^ b)^bin);
+assign borrow= ( ( ~a & b)| ( bin & (~(a ^ b ))));
 endmodule
+
 
 ```
  Developed by: M. KISHORE
@@ -103,24 +93,28 @@ endmodule
 
 FULL ADDER
 
-![Screenshot 2024-11-24 161000](https://github.com/user-attachments/assets/a4ebd96e-232e-432b-98e5-e272b1999183)
+![Screenshot 2024-12-03 141457](https://github.com/user-attachments/assets/5dc82452-1baa-4caa-880f-03b173e70865)
+
 
 
 FULL SUBTRACTOR
 
-![Screenshot 2024-11-24 162447](https://github.com/user-attachments/assets/3c72c4ab-524c-4e5d-acc6-e8270d5e92f7)
+![Screenshot 2024-12-03 142140](https://github.com/user-attachments/assets/3a9b8ee0-0370-45ee-bba7-9616c4554746)
+
 
 
 **Output Timing Waveform**
 
 FULL ADDER
 
-![Screenshot (18)](https://github.com/user-attachments/assets/41402564-a33b-4d6b-9882-8d66765d4fec)
+![Screenshot (29)](https://github.com/user-attachments/assets/515eaa7b-11ed-4243-9cbf-20bf5ae296e0)
+
 
 
 FULL SUBTRACTOR
 
-![Screenshot (19)](https://github.com/user-attachments/assets/a0f08c01-492a-4cea-bb7a-8486c89009cd)
+![Screenshot (30)](https://github.com/user-attachments/assets/da805de2-28f1-4641-aefe-cff2d51ac340)
+
 
 
 **Result:**
